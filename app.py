@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, redirect
 from pymongo import MongoClient
 
 app = Flask(__name__)
+app.config['DEBUG'] = True
+
 
 # Replace the URI string with your MongoDB deployment's connection string.
 client = MongoClient("mongodb://localhost:27017/")
@@ -28,4 +30,4 @@ def submit():
     return redirect('/')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
